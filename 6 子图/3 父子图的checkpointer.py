@@ -78,6 +78,10 @@ builder.add_edge("node_c", END)
 
 # 编译父图
 graph = builder.compile(checkpointer=InMemorySaver())
-
+config = {
+    "configurable": {
+        "thread_id": "thread_1"
+    }
+}
 # 调用父图
-graph.invoke(input={})
+graph.invoke(input={}, config=config)
